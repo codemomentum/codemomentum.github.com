@@ -1,0 +1,14 @@
+---           
+layout: post
+title: Implicit type conversion in Scala
+date: 2011-10-13 21:18:31 UTC
+updated: 2011-10-13 21:18:31 UTC
+comments: false
+categories: dsl scala
+---
+
+It is possible to create your first dsl-like structures in a few lines of code with Scala.<br /><br />I am working on a social graph, a simple one though. Some items are related to some other items in a certain way. Lets say, we have a relation called 'follows' between 2 items, and items are identified by unique strings:<br /><code><br /> 
+{% gist 1357640 %}
+ <br /></code>  <br />And the usage is as simple as:<br />
+ <br /><code>"id1" follows "id2"</code><br />
+ Have fun! 

@@ -1,0 +1,12 @@
+---           
+layout: post
+title: Dynamic Data Scraping With Groovy And Tagsoup
+date: 2012-08-30 21:14:40 UTC
+updated: 2012-08-30 21:14:40 UTC
+comments: false
+categories: groovy tagsoup
+---
+
+If you had to parse html and extract some data out of it in the past, you might remember that it was not a very pleasant topic.<br /><br />In my case i was trying to parse the wow armory for some statistical mining but the timing was not that good. The armory api was not there for the latest major patch so i had to go through the website.<br /><br />I think that combining Tagsoup and groovy can be the simplest approach on the JVM.<br /><br /><br />
+{% gist 3528242 %}
+<br />When i revisited that code lately for another similar issue, i just tweaked it a bit, because my initial implementation was creating a parser implementation from a a Java interface and using it via dependency injection. That will work pretty well but if you might need to change the parser logic, there will be a deployment and restart.<br /><br />So what i am doing now is, i write a groovy script, and execute it with GroovyShell.<br /><br />def script = new GroovyShell().parse(scriptContent);<br /><br />This will create a Script object which you can execute with a specific context:<br /><br />script.setProperty("context", context);<br />script.run();<br /><br />Thats it, now the parser is in the Groovy Script and you can change it on the fly from the UI.<br /><br />However i would recommend you to optimize this a little bit since this is not a very cheap operation.<br /><br /><br /><br />

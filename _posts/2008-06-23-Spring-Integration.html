@@ -1,0 +1,20 @@
+---           
+layout: post
+title: spring integration
+date: 2008-06-23 21:20:23 UTC
+updated: 2008-06-23 21:20:23 UTC
+comments: false
+categories: esb spring spring-integration
+---
+
+spring integration  This is a simple spring-integration application.I start by defining a message bus with a custom error handler:  
+{% gist 1358087 %}
+and the error handler itself; does not really do much...  
+{% gist 1358089 %}
+ now, what i want to do with the this application is, <br/> i want to have an inbound endpoint and an outbound endpoint, <br/> and i want to apply some transformation on the files that are sent to the inbound,  <br/>and have them forwarded to the outbound. <br/> Lets say that i am going to transform this file: <br/><br/>propery1|test1|property2|test2  <br/>to this format: <br/><br/>timeProcessed= ${processingDate} <br/>property2=test2 <br/>propery1=test1  <br/>so this is my simple pojo that is doing this transformation: <br/><br/>
+ {% gist 1358091 %}
+  and now i need to update the context and have this pojo as the transformer between the inbound and outbound endpoints:  
+  {% gist 1358094 %}
+    thats all!      * you need spring-integration-core and spring-integration-adapters in classpath  * the xml definition is:  
+    {% gist 1358096 %}
+    (post migrated from jroller) 
