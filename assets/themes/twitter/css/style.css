@@ -63,3 +63,6 @@
   background: #57A957;
   border: 1px solid #4c964d;
   color: #FFF; }
+
+.navbar-inverse .brand2{color:#111111;text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);}
+.navbar-inverse .brand2{color:#111111;}
